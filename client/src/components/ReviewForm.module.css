@@ -1,0 +1,60 @@
+.openBtn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  transition: background 0.2s;
+}
+
+.openBtn:hover { background: var(--primary-hover); }
+
+.form { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem; }
+
+.stars { display: flex; gap: 0.2rem; }
+
+.starOn, .starOff {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.1s;
+}
+
+.starOn { color: #f59e0b; }
+.starOff { color: #d1d5db; }
+.starOn:hover, .starOff:hover { transform: scale(1.2); }
+
+.input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  background: var(--bg);
+}
+
+.input:focus { outline: none; border-color: var(--primary); }
+
+.actions { display: flex; gap: 0.5rem; }
+
+.submitBtn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+}
+
+.cancelBtn {
+  background: none;
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.done { color: var(--success); font-weight: 600; font-size: 0.9rem; }

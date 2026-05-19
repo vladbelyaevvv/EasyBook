@@ -1,0 +1,97 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  GUEST
+  CLIENT
+  SPECIALIST
+  ADMIN
+}
+
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String
+  name         String
+  phone        String?
+  role         Role     @default(CLIENT)
+  createdAt    DateTime @default(now())
+
+  specialist   Specialist?
+  appointments Appointment[] @relation("ClientAppointments")
+  reviews      Review[]      @relation("ClientReviews")
+}
+
+model Specialist {
+  id             Int     @id @default(autoincrement())
+  userId         Int     @unique
+  bio            String?
+  specialization String
+  avatarUrl      String?
+  isVerified     Boolean @default(false)
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  services     Service[]
+  appointments Appointment[] @relation("SpecialistAppointments")
+  reviews      Review[]      @relation("SpecialistReviews")
+}
+
+model Service {
+  id              Int     @id @default(autoincrement())
+  specialistId    Int
+  name            String
+  description     String?
+  price           Float
+  durationMinutes Int
+
+  specialist   Specialist    @relation(fields: [specialistId], references: [id], onDelete: Cascade)
+  appointments Appointment[]
+}
+
+model Appointment {
+  id           Int               @id @default(autoincrement())
+  clientId     Int
+  specialistId Int
+  serviceId    Int
+  date         DateTime
+  timeSlot     String
+  status       AppointmentStatus @default(PENDING)
+  createdAt    DateTime          @default(now())
+
+  client     User       @relation("ClientAppointments", fields: [clientId], references: [id])
+  specialist Specialist @relation("SpecialistAppointments", fields: [specialistId], references: [id])
+  service    Service    @relation(fields: [serviceId], references: [id])
+  review     Review?
+}
+
+model Review {
+  id            Int      @id @default(autoincrement())
+  clientId      Int
+  specialistId  Int
+  appointmentId Int      @unique
+  rating        Int
+  comment       String?
+  createdAt     DateTime @default(now())
+
+  client      User        @relation("ClientReviews", fields: [clientId], references: [id])
+  specialist  Specialist  @relation("SpecialistReviews", fields: [specialistId], references: [id])
+  appointment Appointment @relation(fields: [appointmentId], references: [id])
+}

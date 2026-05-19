@@ -1,0 +1,164 @@
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0;
+}
+
+.tab, .activeTab {
+  padding: 0.6rem 1.25rem;
+  border: none;
+  background: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.2s;
+}
+
+.activeTab {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date { font-weight: 600; }
+.sub { font-size: 0.88rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+.actions { display: flex; gap: 0.5rem; }
+
+.confirmBtn {
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  transition: opacity 0.2s;
+}
+
+.confirmBtn:hover { opacity: 0.85; }
+
+.rejectBtn {
+  background: none;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  transition: all 0.2s;
+}
+
+.rejectBtn:hover { background: var(--danger); color: white; }
+
+.statusLabel {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.serviceForm {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.serviceForm input {
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  flex: 1;
+  min-width: 140px;
+  background: var(--card);
+}
+
+.serviceForm input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.addBtn {
+  padding: 0.6rem 1.25rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.addBtn:hover:not(:disabled) { background: var(--primary-hover); }
+
+.noProfile {
+  text-align: center;
+  margin-top: 3rem;
+  color: var(--text-muted);
+}
+
+.empty { color: var(--text-muted); text-align: center; margin-top: 2rem; }
+
+.profileForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+.profileForm label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.profileForm input,
+.profileForm textarea {
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  background: var(--card);
+  resize: vertical;
+}
+
+.profileForm input:focus,
+.profileForm textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.completeBtn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  transition: opacity 0.2s;
+}
+
+.completeBtn:hover { opacity: 0.85; }
