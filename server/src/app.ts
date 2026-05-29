@@ -5,6 +5,7 @@ import specialistRoutes from './routes/specialist.routes.js';
 import serviceRoutes from './routes/service.routes.js';
 import appointmentRoutes from './routes/appointment.routes.js';
 import reviewRoutes from './routes/review.routes.js';
+import adminRoutes from './routes/admin.routes.js';
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use('/api/specialists', specialistRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/appointments', appointmentRoutes);
 app.use('/api/reviews', reviewRoutes);
+app.use('/api/admin', adminRoutes);
 
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok' });

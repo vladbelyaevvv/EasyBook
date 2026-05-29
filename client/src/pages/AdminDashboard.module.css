@@ -1,0 +1,97 @@
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0;
+}
+
+.tab, .activeTab {
+  padding: 0.6rem 1.25rem;
+  border: none;
+  background: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.2s;
+}
+
+.activeTab {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table th {
+  text-align: left;
+  padding: 0.7rem 0.8rem;
+  border-bottom: 2px solid var(--border);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.table td {
+  padding: 0.7rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.table td input,
+.table td select {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  background: var(--card);
+  width: 100%;
+}
+
+.table td input:focus,
+.table td select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.actions {
+  display: flex;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.editBtn, .saveBtn, .cancelBtn, .deleteBtn {
+  padding: 0.3rem 0.7rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.editBtn { background: var(--primary); color: white; }
+.saveBtn { background: var(--success); color: white; }
+.cancelBtn { background: var(--border); color: var(--text); }
+.deleteBtn { background: var(--danger); color: white; }
+
+.editBtn:hover, .saveBtn:hover, .cancelBtn:hover, .deleteBtn:hover {
+  opacity: 0.8;
+}

@@ -16,6 +16,10 @@ export class AppointmentRepository implements IAppointmentRepository {
     return prisma.appointment.findMany({ where: { specialistId } });
   }
 
+  async findAll(): Promise<Appointment[]> {
+    return prisma.appointment.findMany();
+  }
+
   async findConflict(
     specialistId: number,
     date: string,

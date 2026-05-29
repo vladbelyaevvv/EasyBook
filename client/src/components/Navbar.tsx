@@ -19,6 +19,9 @@ export default function Navbar() {
           {isAuthenticated ? (
             <>
               <span className={styles.username}>{user?.name}</span>
+              {user?.role === 'ADMIN' && (
+                <Link to="/admin">Админ-панель</Link>
+              )}
               {user?.role === 'SPECIALIST' && (
                 <Link to="/specialist/dashboard">Панель</Link>
               )}

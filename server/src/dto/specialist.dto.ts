@@ -8,4 +8,5 @@ export interface UpdateSpecialistDto {
   bio?: string;
   specialization?: string;
   avatarUrl?: string;
+  isVerified?: boolean;
 }

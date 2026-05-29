@@ -12,6 +12,10 @@ export class ServiceRepository implements IServiceRepository {
     return prisma.service.findMany({ where: { specialistId } });
   }
 
+  async findAll(): Promise<Service[]> {
+    return prisma.service.findMany();
+  }
+
   async create(specialistId: number, data: CreateServiceDto): Promise<Service> {
     return prisma.service.create({
       data: { specialistId, ...data },

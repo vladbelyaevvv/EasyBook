@@ -8,6 +8,7 @@ import SpecialistPage from './pages/SpecialistPage.js';
 import AppointmentsPage from './pages/AppointmentsPage.js';
 import SpecialistDashboard from './pages/SpecialistDashboard.js';
 import BecomeSpecialistPage from './pages/BecomeSpecialistPage.js';
+import AdminDashboard from './pages/AdminDashboard.js';
 
 const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated } = useAuth();
@@ -32,6 +33,9 @@ export default function App() {
           } />
           <Route path="/become-specialist" element={
             <PrivateRoute><BecomeSpecialistPage /></PrivateRoute>
+          } />
+          <Route path="/admin" element={
+            <PrivateRoute><AdminDashboard /></PrivateRoute>
           } />
         </Routes>
       </main>

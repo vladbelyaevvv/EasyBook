@@ -20,6 +20,10 @@ export class ReviewRepository implements IReviewRepository {
     return prisma.review.findUnique({ where: { appointmentId } });
   }
 
+  async findAll(): Promise<Review[]> {
+    return prisma.review.findMany();
+  }
+
   async create(clientId: number, data: CreateReviewDto): Promise<Review> {
     return prisma.review.create({
       data: {

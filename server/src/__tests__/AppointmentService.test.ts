@@ -8,6 +8,7 @@ const mockAppointmentRepo: IAppointmentRepository = {
   findById: vi.fn(),
   findByClientId: vi.fn(),
   findBySpecialistId: vi.fn(),
+  findAll: vi.fn(),
   findConflict: vi.fn(),
   create: vi.fn(),
   updateStatus: vi.fn(),
